@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Data</string>
+    <string name="headingName">headingName</string>
+    <string name="subHeading">subHeading</string>
+    <string name="favorite">Favorite</string>
+    <string name="share">Share</string>
+</resources>
