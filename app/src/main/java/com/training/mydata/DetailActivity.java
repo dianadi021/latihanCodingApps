@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
     ImageView imageView;
     TextView tvTitle, tvDescription;
+    Context context;
 
     String Title, Description;
     int Image;
@@ -28,6 +30,9 @@ public class DetailActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageDetail);
         tvTitle = findViewById(R.id.heading);
         tvDescription = findViewById(R.id.subHeading);
+
+        ImageView btnAbtMe = findViewById(R.id.btnAbtMe);
+        btnAbtMe.setOnClickListener(this);
 
         getData();
         setData();
@@ -47,5 +52,16 @@ public class DetailActivity extends AppCompatActivity {
         this.tvTitle.setText(this.Title);
         this.tvDescription.setText(this.Description);
         this.imageView.setImageResource(this.Image);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnAbtMe:
+                Intent moveIntent = new Intent(DetailActivity.this, AboutMe.class);
+                startActivity(moveIntent);
+
+                break;
+        }
     }
 }
